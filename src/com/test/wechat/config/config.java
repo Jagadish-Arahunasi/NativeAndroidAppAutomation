@@ -16,9 +16,9 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
 public class config {
-	static AndroidDriver driver;
-	static String aPackage = "com.tencent.mm";
-	static String aActivity = "com.tencent.mm.ui.LauncherUI";
+	public static AndroidDriver driver;
+	public static String aPackage = "com.tencent.mm";
+	public static String aActivity = "com.tencent.mm.ui.LauncherUI";
 
 	// TODO Auto-generated method stub
 	@BeforeTest
@@ -33,18 +33,17 @@ public class config {
 		 * 
 		 * "com.android.chrome.Main");
 		 */
-		capabilitiesAndroid.setCapability("automationName", "Selendroid");
+	//	capabilitiesAndroid.setCapability("automationName", "Selendroid");
 		capabilitiesAndroid.setCapability("browserName", "");
 		capabilitiesAndroid.setCapability("platformName", "Android");
 		capabilitiesAndroid.setCapability("deviceName", "Android");
 		capabilitiesAndroid.setCapability("appPackage", aPackage);
 		capabilitiesAndroid.setCapability("appActivity", aActivity);
-		driver.manage().timeouts().implicitlyWait(30000, TimeUnit.SECONDS);
 		// Launch the Application
 		driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"),
 				capabilitiesAndroid);
 		System.out.println("Launched Application");
-
+		driver.manage().timeouts().implicitlyWait(30000, TimeUnit.SECONDS);
 	}
 
 	@AfterTest
