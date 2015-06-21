@@ -8,6 +8,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class HomePage {
 
+	
 	private final AndroidDriver driver;
 	public HomePage(AndroidDriver driver) {
 
@@ -23,4 +24,14 @@ public class HomePage {
 			throw new IllegalStateException("This is not the  Page");
 		}
 }
-}
+
+	public ContactsPage clickOnContacts (AndroidDriver driver){
+		
+		driver.findElement(By.name("Contacts")).click();
+		System.out.println("Successfully clicked on contact icon");
+		return new ContactsPage(driver);
+	}
+
+	
+	}
+
